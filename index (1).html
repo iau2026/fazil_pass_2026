@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ফাজিল স্নাতক (পাস) কোর্স</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700&family=Amiri:wght@400;700&display=swap">
+<style>
+:root{--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cg fill='none' stroke='%230b4f43' stroke-opacity='.06' stroke-width='1.2'%3E%3Crect x='25' y='25' width='40' height='40'/%3E%3Crect x='25' y='25' width='40' height='40' transform='rotate(45 45 45)'/%3E%3Ccircle cx='45' cy='45' r='11'/%3E%3C/g%3E%3C/svg%3E");--bg:#f1f6f4;--ink:#14201d;--green:#0b4f43;--gold:#c8962e;--line:#cfdcd7;--card:#fff;--muted:#53655f}
+@media(prefers-color-scheme:dark){:root{--pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cg fill='none' stroke='%23e0b04d' stroke-opacity='.06' stroke-width='1.2'%3E%3Crect x='25' y='25' width='40' height='40'/%3E%3Crect x='25' y='25' width='40' height='40' transform='rotate(45 45 45)'/%3E%3Ccircle cx='45' cy='45' r='11'/%3E%3C/g%3E%3C/svg%3E");--bg:#0e1815;--ink:#e8f0ed;--green:#5fc2a8;--gold:#e0b04d;--line:#26413a;--card:#15241f;--muted:#9fb3ac}}
+*{box-sizing:border-box}
+html[lang=ar] body,html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] button{font-family:'Amiri','Traditional Arabic','Noto Naskh Arabic',serif}
+html[lang=ar] body{line-height:1.9;font-size:18px}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] .col{font-weight:700}
+body{margin:0;background:var(--bg) var(--pat);color:var(--ink);font-family:'Hind Siliguri',system-ui,sans-serif;line-height:1.7}
+h1,h2{font-family:'Noto Serif Bengali','Hind Siliguri',serif;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header{position:relative;overflow:hidden;background:#06302a;padding:20px 0 22px;border-bottom:3px solid var(--gold)}
+header .hbanner{position:absolute;inset:0;width:100%;height:100%;opacity:.6}
+header::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(4,30,26,.92),rgba(4,30,26,.6) 60%,rgba(4,30,26,.4))}
+html[dir=rtl] header::before{background:linear-gradient(270deg,rgba(4,30,26,.92),rgba(4,30,26,.6) 60%,rgba(4,30,26,.4))}
+header .wrap{position:relative;z-index:2}
+header h1{color:#fff}
+header p{color:#d6e6e0}
+header .lang{border-color:#fff}
+header .lang button{color:#fff}
+header .lang button[aria-pressed=true]{background:#fff;color:#0b4f43}
+.top{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lang{display:inline-flex;border:1.5px solid var(--green);border-radius:6px;overflow:hidden}
+.lang button{font:inherit;font-size:14px;font-weight:600;padding:3px 14px;border:0;background:transparent;color:var(--green);cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--green);color:var(--bg)}
+header h1{font-size:clamp(25px,5vw,38px)}
+header p{margin:6px 0 0}
+section{padding:26px 0 6px}
+h2{font-size:22px;margin-bottom:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{font:inherit;font-weight:600;padding:8px 18px;border:1.5px solid var(--green);background:transparent;color:var(--green);border-radius:6px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--green);color:var(--bg)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.list{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.list li:last-child{border-bottom:0}
+.list a.dl{color:var(--green);font-weight:600;text-decoration:none}
+.list a.dl:hover{text-decoration:underline}
+.date{color:var(--muted);font-size:14px}
+.empty{padding:16px;color:var(--muted)}
+#links h3{font-size:16px;margin:18px 0 8px;color:var(--green)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.col{font:inherit;font-size:17px;font-weight:700;text-align:center;padding:20px 10px;border:1.5px solid var(--green);border-top:5px solid var(--gold);background:var(--card);color:var(--green);border-radius:8px;cursor:pointer}
+.col:hover{border-top-color:var(--green)}
+.col[aria-expanded=true]{background:var(--green);color:var(--bg)}
+.list li.r{padding:0}
+.rowlink{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;width:100%;color:var(--ink);text-decoration:none}
+.rowlink span{color:var(--green);font-weight:600;white-space:nowrap}
+.rowlink:hover{background:rgba(200,150,46,.13)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.links a{display:block;padding:14px 16px;border:1px solid var(--line);border-left:5px solid var(--gold);background:var(--card);border-radius:6px;color:var(--ink);text-decoration:none;font-weight:600}
+.links a:hover{border-left-color:var(--green)}
+footer{margin-top:36px;padding:18px 0 30px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+#welcome{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#fff;overflow:auto;background:#06302a}
+#welcome::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:#c8962e}
+#welcome .library{position:absolute;inset:0;width:100%;height:100%}
+#welcome .veil{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(4,30,26,.88),rgba(4,30,26,.5) 62%,rgba(4,30,26,.22))}
+#welcome .wc{position:relative;z-index:1;max-width:680px;padding:26px 22px;border-radius:14px;background:rgba(4,30,26,.5);border:1px solid rgba(224,176,77,.45)}
+#welcome.hide{display:none}
+#welcome h1{font-size:clamp(28px,6.5vw,50px);line-height:1.4;color:#fff}
+#welcome p{max-width:540px;margin:14px auto 26px;font-size:18px;opacity:.93}
+#welcome .lang{border-color:#fff;margin-bottom:26px}
+#welcome .lang button{color:#fff}
+#welcome .lang button[aria-pressed=true]{background:#fff;color:#0b4f43}
+#enter{font:inherit;font-weight:700;font-size:18px;padding:12px 34px;border:0;border-radius:6px;background:var(--gold);color:#1b1500;cursor:pointer}
+@media(prefers-reduced-motion:no-preference){#welcome h1{animation:rise .8s ease both}@keyframes rise{from{opacity:0;transform:translateY(14px)}}}
+</style>
+</head>
+<body>
+
+<div id="welcome" role="dialog" aria-labelledby="wt">
+    <svg class="library" id="lib" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="veil"></div>
+  <div class="wc">
+    <div class="lang" data-lang-switch></div><br>
+    <h1 id="wt" data-t="w_title"></h1>
+    <p data-t="w_text"></p>
+    <button id="enter" data-t="enter"></button>
+  </div>
+</div>
+
+<header>
+  <svg class="hbanner" id="hlib" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="wrap">
+  <div class="top"><div class="lang" data-lang-switch></div></div>
+  <h1 data-t="h_title"></h1>
+  <p data-t="h_sub"></p>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <div class="cols" id="cols"></div>
+    <ul class="list" id="panel" hidden style="margin-top:14px"></ul>
+  </section>
+</main>
+
+<footer><div class="wrap"><span dir="ltr">© KBFM Fazil Class Connect</span></div></footer>
+
+<script>
+/* ===== শুধু এই অংশ এডিট করলেই হবে / Edit only this block ===== */
+const SYLLABUS = [
+  { name:{bn:"প্রথম বর্ষ",ar:"السنة الأولى"}, title:{bn:"প্রথম বর্ষর সিলেবাস",ar:"منهج السنة الأولى"},
+    desc:{bn:"ইসলামী আরবি বিশ্ববিদ্যালয় অধিভুক্ত ফাজিল (পাস) কোর্সের প্রথম বর্ষর সিলেবাস।",ar:"المنهج الدراسي للسنة الأولى من مرحلة الفاضل (النظام العادي) التابعة للجامعة الإسلامية العربية."}, file:"pdf/year1.pdf" },
+  { name:{bn:"দ্বিতীয় বর্ষ",ar:"السنة الثانية"}, title:{bn:"দ্বিতীয় বর্ষর সিলেবাস",ar:"منهج السنة الثانية"},
+    desc:{bn:"ইসলামী আরবি বিশ্ববিদ্যালয় অধিভুক্ত ফাজিল (পাস) কোর্সের দ্বিতীয় বর্ষর সিলেবাস।",ar:"المنهج الدراسي للسنة الثانية من مرحلة الفاضل (النظام العادي) التابعة للجامعة الإسلامية العربية."}, file:"pdf/year2.pdf" },
+  { name:{bn:"তৃতীয় বর্ষ",ar:"السنة الثالثة"}, title:{bn:"তৃতীয় বর্ষর সিলেবাস",ar:"منهج السنة الثالثة"},
+    desc:{bn:"ইসলামী আরবি বিশ্ববিদ্যালয় অধিভুক্ত ফাজিল (পাস) কোর্সের তৃতীয় বর্ষর সিলেবাস।",ar:"المنهج الدراسي للسنة الثالثة من مرحلة الفاضل (النظام العادي) التابعة للجامعة الإسلامية العربية."}, file:"pdf/year3.pdf" }
+];
+const LINKS = [
+  { group:{bn:"বিশ্ববিদ্যালয়",ar:"الجامعة"}, items:[
+    { title:{bn:"বিশ্ববিদ্যালয়ের মূল ওয়েবসাইট",ar:"الموقع الرسمي للجامعة"}, url:"http://iau.edu.bd/" } ]},
+  { group:{bn:"নোটিশ",ar:"الإشعارات"}, items:[
+    { title:{bn:"পরীক্ষা সংক্রান্ত নোটিশ",ar:"إشعارات الامتحانات"}, url:"http://iau.edu.bd/allnotice/exam-related/" } ]},
+  { group:{bn:"ফলাফল",ar:"النتائج"}, items:[
+    { title:{bn:"নিয়মিত পরীক্ষার্থীদের ফলাফল",ar:"نتائج الطلاب النظاميين"}, url:"http://result.iau.edu.bd/" },
+    { title:{bn:"রিটেক / মান উন্নয়ন পরীক্ষার্থীদের ফলাফল",ar:"نتائج الإعادة / تحسين الدرجات"}, url:"http://result.iau.edu.bd/result_improvement" },
+    { title:{bn:"চূড়ান্ত ফলাফল",ar:"النتيجة النهائية"}, url:"http://result.iau.edu.bd/academic_result" } ]},
+  { group:{bn:"সনদ ও সত্যায়ন",ar:"الشهادات والتصديق"}, items:[
+    { title:{bn:"সনদ ও নম্বরপত্রের আবেদন",ar:"طلب الشهادة وكشف الدرجات"}, url:"http://www.certificate.iau.edu.bd/registration" },
+    { title:{bn:"বিদেশগামী শিক্ষার্থীদের সনদ ও নম্বরপত্র সত্যায়ন",ar:"تصديق الشهادة وكشف الدرجات للطلاب المسافرين إلى الخارج"}, url:"https://www.mygov.bd/" } ]}
+];
+/* ================================================================ */
+
+const T = {
+  bn:{w_title:"ফাজিল স্নাতক (পাস) কোর্সে আপনাকে স্বাগতম ও অভিনন্দন",
+      w_text:"ফাজিল স্নাতক (পাস) কোর্সের তথ্যাবলি জানার জন্য আপনাকে অভিনন্দন। সিলেবাস ও পরীক্ষার নোটিশ এক জায়গায় পাবেন।",
+      enter:"প্রবেশ করুন", h_title:"ফাজিল স্নাতক (পাস) কোর্স", h_sub:"সিলেবাস ও পরীক্ষার নোটিশ",
+      syl:"সিলেবাস", pdf:"পিডিএফ দেখুন / ডাউনলোড", doc:"ফাজিল স্নাতক (পাস) কোর্স"},
+  ar:{w_title:"مرحبًا بكم وتهانينا في مرحلة الفاضل (البكالوريوس) – النظام العادي",
+      w_text:"تهانينا لكم على الاطّلاع على معلومات مرحلة الفاضل (البكالوريوس) – النظام العادي. تجدون المنهج الدراسي وإشعارات الامتحانات في مكان واحد.",
+      enter:"الدخول", h_title:"الفاضل (البكالوريوس) – النظام العادي", h_sub:"المنهج الدراسي وإشعارات الامتحانات",
+      syl:"المنهج الدراسي", pdf:"عرض / تحميل PDF", doc:"الفاضل (البكالوريوس) – النظام العادي"}
+};
+let lang = 'bn', openIdx = -1;
+try { const s = localStorage.getItem('lang'); if (s==='bn'||s==='ar') lang = s; } catch(e){}
+const $ = id => document.getElementById(id);
+const welcome = $('welcome');
+function buildLib(id,P){
+  let seed=11; const r=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+  const pal=['#c8962e','#8a2f2f','#1d6b5a','#e8dcc0','#5a3b1e','#2e4a7a','#a8742b','#3d7a4a','#d4b15a','#7a3d5a'];
+  let o='<defs><linearGradient id="'+P+'wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f5a4c"/><stop offset="1" stop-color="#062f28"/></linearGradient>'+
+   '<linearGradient id="'+P+'floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a3a31"/><stop offset="1" stop-color="#03130f"/></linearGradient>'+
+   '<radialGradient id="'+P+'glow"><stop offset="0" stop-color="#ffd980" stop-opacity=".75"/><stop offset="1" stop-color="#ffd980" stop-opacity="0"/></radialGradient></defs>'+
+   '<rect width="1200" height="700" fill="url(#'+P+'wall)"/><rect y="0" width="1200" height="70" fill="#04231e"/><rect y="70" width="1200" height="4" fill="#c8962e"/>';
+  const W=190,G=28,X0=69,TOP=250,BOT=560;
+  for(let i=0;i<5;i++){
+    const x=X0+i*(W+G), cx=x+W/2;
+    const arch='M'+x+' '+BOT+'V'+TOP+'A'+(W/2)+' '+(W/2)+' 0 0 1 '+(x+W)+' '+TOP+'V'+BOT+'Z';
+    o+='<clipPath id="'+P+'c'+i+'"><path d="'+arch+'"/></clipPath><path d="'+arch+'" fill="#071f1b"/><g clip-path="url(#'+P+'c'+i+')">';
+    for(let y=BOT-54;y>150;y-=54){
+      let bx=x+4;
+      while(bx<x+W-4){
+        const w=7+Math.floor(r()*10), h=32+Math.floor(r()*18), c=pal[Math.floor(r()*pal.length)];
+        o+='<rect x="'+bx+'" y="'+(y+50-h)+'" width="'+w+'" height="'+h+'" fill="'+c+'" fill-opacity=".88"/>';
+        bx+=w+1;
+      }
+      o+='<rect x="'+x+'" y="'+(y+50)+'" width="'+W+'" height="4" fill="#c8962e"/>';
+    }
+    o+='</g><path d="'+arch+'" fill="none" stroke="#e0b04d" stroke-width="4"/>'+
+       '<path d="M'+(x-8)+' '+BOT+'V'+TOP+'A'+(W/2+8)+' '+(W/2+8)+' 0 0 1 '+(x+W+8)+' '+TOP+'V'+BOT+'" fill="none" stroke="#e0b04d" stroke-opacity=".5" stroke-width="2"/>'+
+       '<g fill="none" stroke="#e0b04d" stroke-width="1.5" transform="translate('+cx+' 150)"><rect x="-14" y="-14" width="28" height="28"/><rect x="-14" y="-14" width="28" height="28" transform="rotate(45)"/></g>';
+  }
+  [[190,120],[420,170],[780,150],[1010,190]].forEach(([x,L])=>{
+    o+='<line x1="'+x+'" y1="74" x2="'+x+'" y2="'+L+'" stroke="#c8962e" stroke-width="2"/><circle cx="'+x+'" cy="'+(L+26)+'" r="85" fill="url(#'+P+'glow)"/>'+
+       '<path d="M'+(x-6)+' '+L+'L'+(x+6)+' '+L+'L'+(x+14)+' '+(L+12)+'L'+(x+14)+' '+(L+38)+'L'+(x+6)+' '+(L+48)+'L'+(x-6)+' '+(L+48)+'L'+(x-14)+' '+(L+38)+'L'+(x-14)+' '+(L+12)+'Z" fill="#e0b04d"/>'+
+       '<rect x="'+(x-8)+'" y="'+(L+14)+'" width="16" height="24" fill="#fff3c4" fill-opacity=".85"/>';
+  });
+  o+='<rect y="'+BOT+'" width="1200" height="140" fill="url(#'+P+'floor)"/><rect y="'+BOT+'" width="1200" height="3" fill="#c8962e" fill-opacity=".7"/>';
+  [300,600,900].forEach(x=>{
+    o+='<circle cx="'+x+'" cy="612" r="70" fill="url(#'+P+'glow)" fill-opacity=".7"/><rect x="'+(x-110)+'" y="614" width="220" height="12" fill="#6b4a1e"/><rect x="'+(x-100)+'" y="626" width="8" height="46" fill="#4a3214"/><rect x="'+(x+92)+'" y="626" width="8" height="46" fill="#4a3214"/>';
+    for(let k=0;k<4;k++) o+='<rect x="'+(x-70+k*34)+'" y="'+(604-(k%2)*3)+'" width="26" height="10" fill="'+pal[(k+x/100)%pal.length|0]+'"/>';
+  });
+  document.getElementById(id).innerHTML=o;
+}
+buildLib('lib','a');buildLib('hlib','b');
+$('enter').onclick = () => welcome.classList.add('hide');
+
+function setLang(l){ lang=l; try{localStorage.setItem('lang',l)}catch(e){} render(); }
+function render(){
+  const t=T[lang];
+  document.documentElement.lang=lang; document.documentElement.dir=lang==='ar'?'rtl':'ltr'; document.title=t.doc;
+  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t[el.dataset.t]);
+  document.querySelectorAll('[data-lang-switch]').forEach(box=>{
+    box.innerHTML='';
+    [['bn','বাংলা'],['ar','العربية']].forEach(([code,label])=>{
+      const b=document.createElement('button'); b.textContent=label; b.setAttribute('aria-pressed', lang===code);
+      b.onclick=()=>setLang(code); box.appendChild(b);
+    });
+  });
+  const cols=[{title:t.syl, items:SYLLABUS.map(y=>({text:y.title[lang],sub:y.desc[lang],url:y.file,label:t.pdf}))}]
+    .concat(LINKS.map(g=>({title:g.group[lang], items:g.items.map(l=>({text:l.title[lang],url:l.url,label:lang==='ar'?'↖':'↗'}))})));
+  const box=$('cols'); box.innerHTML='';
+  cols.forEach((c,i)=>{
+    const b=document.createElement('button'); b.className='col'; b.textContent=c.title;
+    b.setAttribute('aria-expanded', i===openIdx);
+    b.onclick=()=>{ openIdx = openIdx===i ? -1 : i; render(); };
+    box.appendChild(b);
+  });
+  const p=$('panel'); p.innerHTML='';
+  if(openIdx<0){ p.hidden=true; return; }
+  p.hidden=false;
+  cols[openIdx].items.forEach(it=>{
+    const li=document.createElement('li'); li.className='r';
+    const a=document.createElement('a'); a.className='rowlink'; a.href=it.url; a.target='_blank'; a.rel='noopener';
+    const left=document.createElement('div'); left.textContent=it.text;
+    if(it.sub){ const d=document.createElement('div'); d.className='date'; d.textContent=it.sub; left.appendChild(d); }
+    const r=document.createElement('span'); r.textContent=it.label;
+    a.append(left,r); li.appendChild(a); p.appendChild(li);
+  });
+}
+render();
+</script>
+</body>
+</html>

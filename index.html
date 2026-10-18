@@ -71,10 +71,6 @@ footer{margin-top:36px;padding:18px 0 30px;border-top:1px solid var(--line);colo
     <ul class="list" id="syllabus"></ul>
   </section>
   <section>
-    <h2 data-t="not"></h2>
-    <ul class="list" id="notices"></ul>
-  </section>
-  <section>
     <h2 data-t="more"></h2>
     <div class="links" id="links"></div>
   </section>
@@ -89,9 +85,6 @@ const SYLLABUS = [
   { name:{bn:"দ্বিতীয় বর্ষ",en:"2nd Year"},    title:{bn:"দ্বিতীয় বর্ষের সিলেবাস",en:"2nd Year Syllabus"},    file:"pdf/year2.pdf" },
   { name:{bn:"তৃতীয় বর্ষ",en:"3rd Year"},     title:{bn:"তৃতীয় বর্ষের সিলেবাস",en:"3rd Year Syllabus"},     file:"pdf/year3.pdf" }
 ];
-const NOTICES = [
-  // { title:{bn:"পরীক্ষার রুটিন",en:"Exam Routine"}, date:{bn:"১৮ অক্টোবর ২০২৬",en:"18 October 2026"}, file:"pdf/notice1.pdf" }
-];
 const LINKS = [
   { title:{bn:"পরীক্ষার সর্বশেষ নোটিশ",en:"Latest Exam Notices"}, url:"https://iau.edu.bd/allnotice/exam-related/" },
   { title:{bn:"মূল ওয়েবসাইট",en:"Main Website"},               url:"https://iau.edu.bd" }
@@ -102,13 +95,13 @@ const T = {
   bn:{w_title:"ফাজিল স্নাতক পাস কোর্সে আপনাকে স্বাগতম ও অভিনন্দন",
       w_text:"ফাজিল স্নাতক পাস কোর্সের তথ্যাবলি জানার জন্য আপনাকে অভিনন্দন। সিলেবাস ও পরীক্ষার নোটিশ এক জায়গায় পাবেন।",
       enter:"প্রবেশ করুন", h_title:"ফাজিল স্নাতক পাস কোর্স কানেক্ট", h_sub:"সিলেবাস ও পরীক্ষার নোটিশ",
-      syl:"সিলেবাস", not:"পরীক্ষার নোটিশ", more:"আরও দেখুন", pdf:"পিডিএফ দেখুন / ডাউনলোড",
-      e1:"এখনো কিছু যোগ করা হয়নি।", e2:"এখনো কোনো নোটিশ নেই।", doc:"ফাজিল স্নাতক পাস কোর্স কানেক্ট"},
+      syl:"সিলেবাস", more:"আরও দেখুন", pdf:"পিডিএফ দেখুন / ডাউনলোড",
+      e1:"এখনো কিছু যোগ করা হয়নি।", doc:"ফাজিল স্নাতক পাস কোর্স কানেক্ট"},
   en:{w_title:"Welcome and Congratulations to the Fazil Degree (Pass) Course",
       w_text:"Congratulations on coming to learn about the Fazil Degree (Pass) Course. Find your syllabus and exam notices in one place.",
       enter:"Enter", h_title:"Fazil Degree Pass Course Connect", h_sub:"Syllabus and Exam Notices",
-      syl:"Syllabus", not:"Exam Notices", more:"Explore More", pdf:"View / Download PDF",
-      e1:"Nothing has been added yet.", e2:"No notices yet.", doc:"Fazil Degree Pass Course Connect"}
+      syl:"Syllabus", more:"Explore More", pdf:"View / Download PDF",
+      e1:"Nothing has been added yet.", doc:"Fazil Degree Pass Course Connect"}
 };
 let lang = 'bn', tab = 0;
 try { const s = localStorage.getItem('lang'); if (s==='bn'||s==='en') lang = s; } catch(e){}
@@ -146,8 +139,6 @@ function render(){
   const sy=$('syllabus'); sy.innerHTML='';
   const y=SYLLABUS[tab];
   if(y && y.file) sy.appendChild(row(y.title[lang],null,y.file)); else msg(sy,t.e1);
-  const nt=$('notices'); nt.innerHTML='';
-  if(!NOTICES.length) msg(nt,t.e2); else NOTICES.forEach(n=>nt.appendChild(row(n.title[lang], n.date?n.date[lang]:null, n.file)));
   const lk=$('links'); lk.innerHTML='';
   LINKS.forEach(l=>{ const a=document.createElement('a'); a.href=l.url; a.target='_blank'; a.rel='noopener'; a.textContent=l.title[lang]; lk.appendChild(a); });
 }

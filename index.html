@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ফাজিল স্নাতক পাস কোর্স কানেক্ট</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700&display=swap">
+<style>
+:root{--bg:#f1f6f4;--ink:#14201d;--green:#0b4f43;--gold:#c8962e;--line:#cfdcd7;--card:#fff;--muted:#53655f}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1815;--ink:#e8f0ed;--green:#5fc2a8;--gold:#e0b04d;--line:#26413a;--card:#15241f;--muted:#9fb3ac}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Hind Siliguri',system-ui,sans-serif;line-height:1.7}
+h1,h2{font-family:'Noto Serif Bengali','Hind Siliguri',serif;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header{padding:20px 0 18px;border-bottom:3px solid var(--gold)}
+.top{display:flex;justify-content:flex-end;margin-bottom:10px}
+.lang{display:inline-flex;border:1.5px solid var(--green);border-radius:6px;overflow:hidden}
+.lang button{font:inherit;font-size:14px;font-weight:600;padding:3px 14px;border:0;background:transparent;color:var(--green);cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--green);color:var(--bg)}
+header h1{font-size:clamp(25px,5vw,38px);color:var(--green)}
+header p{margin:6px 0 0;color:var(--muted)}
+section{padding:26px 0 6px}
+h2{font-size:22px;margin-bottom:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{font:inherit;font-weight:600;padding:8px 18px;border:1.5px solid var(--green);background:transparent;color:var(--green);border-radius:6px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--green);color:var(--bg)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.list{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.list li:last-child{border-bottom:0}
+.list a.dl{color:var(--green);font-weight:600;text-decoration:none}
+.list a.dl:hover{text-decoration:underline}
+.date{color:var(--muted);font-size:14px}
+.empty{padding:16px;color:var(--muted)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.links a{display:block;padding:14px 16px;border:1px solid var(--line);border-left:5px solid var(--gold);background:var(--card);border-radius:6px;color:var(--ink);text-decoration:none;font-weight:600}
+.links a:hover{border-left-color:var(--green)}
+footer{margin-top:36px;padding:18px 0 30px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+#welcome{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;background:var(--green);color:#fff;overflow:auto}
+#welcome.hide{display:none}
+#welcome h1{font-size:clamp(28px,6.5vw,50px);line-height:1.4;color:#fff}
+#welcome p{max-width:540px;margin:14px auto 26px;font-size:18px;opacity:.93}
+#welcome .lang{border-color:#fff;margin-bottom:26px}
+#welcome .lang button{color:#fff}
+#welcome .lang button[aria-pressed=true]{background:#fff;color:var(--green)}
+#enter{font:inherit;font-weight:700;font-size:18px;padding:12px 34px;border:0;border-radius:6px;background:var(--gold);color:#1b1500;cursor:pointer}
+@media(prefers-reduced-motion:no-preference){#welcome h1{animation:rise .8s ease both}@keyframes rise{from{opacity:0;transform:translateY(14px)}}}
+</style>
+</head>
+<body>
+
+<div id="welcome" role="dialog" aria-labelledby="wt">
+  <div>
+    <div class="lang" data-lang-switch></div><br>
+    <h1 id="wt" data-t="w_title"></h1>
+    <p data-t="w_text"></p>
+    <button id="enter" data-t="enter"></button>
+  </div>
+</div>
+
+<header><div class="wrap">
+  <div class="top"><div class="lang" data-lang-switch></div></div>
+  <h1 data-t="h_title"></h1>
+  <p data-t="h_sub"></p>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <h2 data-t="syl"></h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <ul class="list" id="syllabus"></ul>
+  </section>
+  <section>
+    <h2 data-t="not"></h2>
+    <ul class="list" id="notices"></ul>
+  </section>
+  <section>
+    <h2 data-t="more"></h2>
+    <div class="links" id="links"></div>
+  </section>
+</main>
+
+<footer><div class="wrap">© KBFM Fazil Class Connect</div></footer>
+
+<script>
+/* ===== শুধু এই অংশ এডিট করলেই হবে / Edit only this block ===== */
+const SYLLABUS = [
+  { name:{bn:"প্রথম বর্ষ",en:"1st Year"},      title:{bn:"প্রথম বর্ষের সিলেবাস",en:"1st Year Syllabus"},      file:"pdf/year1.pdf" },
+  { name:{bn:"দ্বিতীয় বর্ষ",en:"2nd Year"},    title:{bn:"দ্বিতীয় বর্ষের সিলেবাস",en:"2nd Year Syllabus"},    file:"pdf/year2.pdf" },
+  { name:{bn:"তৃতীয় বর্ষ",en:"3rd Year"},     title:{bn:"তৃতীয় বর্ষের সিলেবাস",en:"3rd Year Syllabus"},     file:"pdf/year3.pdf" }
+];
+const NOTICES = [
+  // { title:{bn:"পরীক্ষার রুটিন",en:"Exam Routine"}, date:{bn:"১৮ অক্টোবর ২০২৬",en:"18 October 2026"}, file:"pdf/notice1.pdf" }
+];
+const LINKS = [
+  { title:{bn:"পরীক্ষার সর্বশেষ নোটিশ",en:"Latest Exam Notices"}, url:"https://iau.edu.bd/allnotice/exam-related/" },
+  { title:{bn:"মূল ওয়েবসাইট",en:"Main Website"},               url:"https://iau.edu.bd" }
+];
+/* ================================================================ */
+
+const T = {
+  bn:{w_title:"ফাজিল স্নাতক পাস কোর্সে আপনাকে স্বাগতম ও অভিনন্দন",
+      w_text:"ফাজিল স্নাতক পাস কোর্সের তথ্যাবলি জানার জন্য আপনাকে অভিনন্দন। সিলেবাস ও পরীক্ষার নোটিশ এক জায়গায় পাবেন।",
+      enter:"প্রবেশ করুন", h_title:"ফাজিল স্নাতক পাস কোর্স কানেক্ট", h_sub:"সিলেবাস ও পরীক্ষার নোটিশ",
+      syl:"সিলেবাস", not:"পরীক্ষার নোটিশ", more:"আরও দেখুন", pdf:"পিডিএফ দেখুন / ডাউনলোড",
+      e1:"এখনো কিছু যোগ করা হয়নি।", e2:"এখনো কোনো নোটিশ নেই।", doc:"ফাজিল স্নাতক পাস কোর্স কানেক্ট"},
+  en:{w_title:"Welcome and Congratulations to the Fazil Degree (Pass) Course",
+      w_text:"Congratulations on coming to learn about the Fazil Degree (Pass) Course. Find your syllabus and exam notices in one place.",
+      enter:"Enter", h_title:"Fazil Degree Pass Course Connect", h_sub:"Syllabus and Exam Notices",
+      syl:"Syllabus", not:"Exam Notices", more:"Explore More", pdf:"View / Download PDF",
+      e1:"Nothing has been added yet.", e2:"No notices yet.", doc:"Fazil Degree Pass Course Connect"}
+};
+let lang = 'bn', tab = 0;
+try { const s = localStorage.getItem('lang'); if (s==='bn'||s==='en') lang = s; } catch(e){}
+const $ = id => document.getElementById(id);
+const welcome = $('welcome');
+try { if (sessionStorage.getItem('seen')) welcome.classList.add('hide'); } catch(e){}
+$('enter').onclick = () => { welcome.classList.add('hide'); try{sessionStorage.setItem('seen','1')}catch(e){} };
+
+function setLang(l){ lang=l; try{localStorage.setItem('lang',l)}catch(e){} render(); }
+function row(title, date, file){
+  const li=document.createElement('li'), left=document.createElement('div');
+  left.textContent=title;
+  if(date){ const d=document.createElement('div'); d.className='date'; d.textContent=date; left.appendChild(d); }
+  const a=document.createElement('a'); a.className='dl'; a.href=file; a.target='_blank'; a.rel='noopener'; a.textContent=T[lang].pdf;
+  li.append(left,a); return li;
+}
+function msg(ul,text){ const li=document.createElement('li'); li.className='empty'; li.textContent=text; ul.appendChild(li); }
+
+function render(){
+  const t=T[lang];
+  document.documentElement.lang=lang; document.title=t.doc;
+  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t[el.dataset.t]);
+  document.querySelectorAll('[data-lang-switch]').forEach(box=>{
+    box.innerHTML='';
+    [['bn','বাংলা'],['en','English']].forEach(([code,label])=>{
+      const b=document.createElement('button'); b.textContent=label; b.setAttribute('aria-pressed', lang===code);
+      b.onclick=()=>setLang(code); box.appendChild(b);
+    });
+  });
+  const tabs=$('tabs'); tabs.innerHTML='';
+  SYLLABUS.forEach((y,i)=>{
+    const b=document.createElement('button'); b.role='tab'; b.textContent=y.name[lang]; b.setAttribute('aria-selected', i===tab);
+    b.onclick=()=>{tab=i; render();}; tabs.appendChild(b);
+  });
+  const sy=$('syllabus'); sy.innerHTML='';
+  const y=SYLLABUS[tab];
+  if(y && y.file) sy.appendChild(row(y.title[lang],null,y.file)); else msg(sy,t.e1);
+  const nt=$('notices'); nt.innerHTML='';
+  if(!NOTICES.length) msg(nt,t.e2); else NOTICES.forEach(n=>nt.appendChild(row(n.title[lang], n.date?n.date[lang]:null, n.file)));
+  const lk=$('links'); lk.innerHTML='';
+  LINKS.forEach(l=>{ const a=document.createElement('a'); a.href=l.url; a.target='_blank'; a.rel='noopener'; a.textContent=l.title[lang]; lk.appendChild(a); });
+}
+render();
+</script>
+</body>
+</html>
